@@ -6,6 +6,8 @@ import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
@@ -15,6 +17,8 @@ import jakarta.persistence.Table;
 public class Employee {
 	
 	@Id
+	@Column(name ="emp_id")
+
 	private Long Id;
 	@Column(name ="emp_name",nullable = false)
 	private String name;
@@ -53,6 +57,10 @@ public class Employee {
 	
 	@OneToMany(mappedBy = "employee",cascade = CascadeType.ALL)
 	private List<Duty> duty;
+	
+	@ManyToOne
+	@JoinColumn(name="manager_id")
+	private Manager manager;
 
 	public Long getId() {
 		return Id;

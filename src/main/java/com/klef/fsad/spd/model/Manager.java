@@ -15,7 +15,8 @@ import jakarta.persistence.Table;
 public class Manager {
 
 	@Id
-	private Long id;
+	@Column(name="manager_id")
+    private Long id;
 	@Column(name="manager_username",nullable=false,unique=true)
 	private String name;
 	@Column(name="manager_email",nullable=false,unique=true)
@@ -29,7 +30,7 @@ public class Manager {
 	
 	@OneToMany(mappedBy="manager", cascade=CascadeType.ALL)
 	private List<Employee> employees;
-	
+	@OneToMany(mappedBy="assignedByManager",cascade=CascadeType.ALL)
 	private List<Duty>dutiesAssigned;
 
 	public Long getId() {
