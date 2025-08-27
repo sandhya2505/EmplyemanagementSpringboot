@@ -14,7 +14,7 @@ import jakarta.persistence.Table;
 public class Duty {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Long id;
+	private int id;
 	@Column(nullable = false)
 	private String title;
 	@Column(nullable = false,length=3000)
@@ -29,10 +29,10 @@ public class Duty {
 	@ManyToOne
 	@JoinColumn(name="assignedByAdmin")
 	private Admin assignedByAdmin;
-	public Long getId() {
+	public int getId() {
 		return id;
 	}
-	public void setId(Long id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 	public String getTitle() {
