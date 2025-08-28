@@ -52,6 +52,13 @@ public class Employee {
 	@Column(name ="emp_contact",nullable = false, unique= true)
     private String contact;
 	
+	
+	@Column(name="acc_status", nullable=false)
+	private String accountStatus;
+	
+	
+	
+	
     @OneToMany(mappedBy = "employee", cascade = CascadeType.ALL)
 	private List<Leave> leave;
 	
@@ -166,13 +173,30 @@ public class Employee {
 		this.duty = duty;
 	}
 
+	public String getAccountStatus() {
+		return accountStatus;
+	}
+
+	public void setAccountStatus(String accountStatus) {
+		this.accountStatus = accountStatus;
+	}
+
+	public Manager getManager() {
+		return manager;
+	}
+
+	public void setManager(Manager manager) {
+		this.manager = manager;
+	}
+
 	@Override
 	public String toString() {
 		return "Employee [Id=" + Id + ", name=" + name + ", gender=" + gender + ", age=" + age + ", designation="
 				+ designation + ", department=" + department + ", salary=" + salary + ", username=" + username
-				+ ", email=" + email + ", password=" + password + ", contact=" + contact + ", leave=" + leave
-				+ ", duty=" + duty + "]";
+				+ ", email=" + email + ", password=" + password + ", contact=" + contact + ", accountStatus="
+				+ accountStatus + ", leave=" + leave + ", duty=" + duty + ", manager=" + manager + "]";
 	}
+
 	
 	
 	
