@@ -42,5 +42,12 @@ public class EmailService {
 	}
 		emailRepository.save(e);
 	}
+	public void sendResetLink(String toEmail, String resetLink) {
+		String subject = "Password Reset Request Link";
+		String body = "Hello, \n\b Click the below reset link to reset your password:\n" + resetLink + "\n\n if you didn't request this, please ignore this email";
+		sendEmail(toEmail,subject,body);
+		
+		
+	}
     
 }
