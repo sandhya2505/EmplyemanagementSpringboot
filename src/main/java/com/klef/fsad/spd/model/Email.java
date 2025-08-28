@@ -21,6 +21,9 @@ public class Email {
 	@Column(nullable=false)
 	private String subject;
 	@Column(nullable=false,length=1000)
+
+	private String message;
+	@Column(nullable=false)
 	private LocalDateTime sentAt;
 	@Column(nullable=false)
 	private String status;
@@ -42,6 +45,12 @@ public class Email {
 	public void setSubject(String subject) {
 		this.subject = subject;
 	}
+	public String getMessage() {
+		return message;
+	}
+	public void setMessage(String message) {
+		this.message = message;
+	}
 	public LocalDateTime getSentAt() {
 		return sentAt;
 	}
@@ -56,9 +65,10 @@ public class Email {
 	}
 	@Override
 	public String toString() {
-		return "Email [id=" + id + ", recipient=" + recipient + ", subject=" + subject + ", sentAt=" + sentAt
-				+ ", status=" + status + "]";
+		return "Email [id=" + id + ", recipient=" + recipient + ", subject=" + subject + ", message=" + message
+				+ ", sentAt=" + sentAt + ", status=" + status + "]";
 	}
+	
 	
 	
 	
