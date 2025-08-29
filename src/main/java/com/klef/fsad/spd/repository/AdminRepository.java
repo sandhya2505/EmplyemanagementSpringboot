@@ -10,4 +10,8 @@ import com.klef.fsad.spd.model.Admin;
 @Repository
 public interface AdminRepository extends JpaRepository <Admin, Integer>{
 
+	public Admin findByUserNameAndPassword(String username,String password);
+	
+	
+	
 }
