@@ -12,6 +12,7 @@ import com.klef.fsad.spd.model.Employee;
 import com.klef.fsad.spd.model.Leave;
 import com.klef.fsad.spd.model.Manager;
 import com.klef.fsad.spd.repository.AdminRepository;
+import com.klef.fsad.spd.repository.ManagerRepository;
 
 @Service
 public class AdminServiceImpl implements AdminService {
@@ -19,6 +20,9 @@ public class AdminServiceImpl implements AdminService {
 	
 	@Autowired
 	private AdminRepository adminRepository;
+	
+	@Autowired
+	private ManagerRepository managerRepository;
 	
 	
 	@Override
@@ -30,11 +34,13 @@ public class AdminServiceImpl implements AdminService {
 	
 	@Override
 	public Manager addManager(Manager manager) {
-		int  manager_id = generateRandomManagerId();
+		Long  manager_id = generateRandomManagerId();
 		String randomPassword = generateRandomPassword(8);
-		return null;
-		
-		
+	
+		manager.setId(manager_id);
+		manager.setPassword(randomPassword);
+		Manager savedManager = managerRepository.save(manager);
+
 	}
 	
 	
