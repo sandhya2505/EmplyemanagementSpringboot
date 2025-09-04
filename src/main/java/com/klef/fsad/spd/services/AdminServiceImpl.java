@@ -41,6 +41,13 @@ public class AdminServiceImpl implements AdminService {
 		manager.setPassword(randomPassword);
 		Manager savedManager = managerRepository.save(manager);
 
+		Strin subject ="welcome Manger to EMS";
+		String body ="Hai "+ manager.getName()+
+				"\n\n You have been Sucessfully added. \n\n Manager ID"+ manager.getId()+ 
+				"Here is your username "+ manager.getName()+ "\n Password "+ manager.getPassword();
+		
+	
+		
 	}
 	
 	
